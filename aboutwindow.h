@@ -15,8 +15,12 @@ public:
     explicit AboutWindow(QWidget *parent = nullptr);
     ~AboutWindow();
 
+private slots:
+    void on_backButton_clicked();
+
 private:
     Ui::AboutWindow *ui;
+    void loadTextFile();
 };
 
 #endif // ABOUTWINDOW_H

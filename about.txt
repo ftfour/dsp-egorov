@@ -1,0 +1,4 @@
+Student project for the subject "Computer Graphics" of students of the Far Eastern Federal University. 
+
+List of developers: 
+	Egorov Ersan

@@ -15,6 +15,9 @@ public:
     DSPMainWindow(QWidget *parent = nullptr);
     ~DSPMainWindow();
 
+private slots:
+    void on_actionAbout_triggered();
+
 private:
     Ui::DSPMainWindow *ui;
 };
