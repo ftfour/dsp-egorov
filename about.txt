@@ -2,3 +2,6 @@ Student project for the subject "Computer Graphics" of students of the Far Easte
 
 List of developers: 
 	Egorov Ersan
+
+Changelog
+v0.1.0 - a basic window has been created
