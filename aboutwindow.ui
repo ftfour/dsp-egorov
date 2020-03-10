@@ -42,7 +42,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="qtLogoButton">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -65,7 +65,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="useLabel">
    <property name="geometry">
     <rect>
      <x>50</x>
