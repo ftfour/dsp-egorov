@@ -2,23 +2,50 @@
 #define DSPMAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QLabel>
+#include <QActionGroup>
+#include "signalviewer.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class DSPMainWindow; }
-QT_END_NAMESPACE
+class QMenu;
 
 class DSPMainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    DSPMainWindow(QWidget *parent = nullptr);
-    ~DSPMainWindow();
+    DSPMainWindow();
+
+public slots:
+    void openFile(const QString &fileName);
+
+protected:
+    void closeEvent(QCloseEvent *event);
 
 private slots:
-    void on_actionAbout_triggered();
+    void open();
+    void updateActions();
+    void loadFiles();
+//    void about();
 
 private:
-    Ui::DSPMainWindow *ui;
+    void createActions();
+    void createMenus();
+    void createStatusBar();
+    void addSignal(signalViewer *viewer);
+    signalViewer *activeViewer();
+    QMdiArea *mdiArea;
+    QLabel *readyLabel;
+//    QWidgetList windows;
+
+    QMenu *fileMenu;
+//    QMenu *windowMenu;
+//    QMenu *helpMenu;
+    QActionGroup *windowActionGroup;
+    QAction *openAction;
+
 };
 #endif // DSPMAINWINDOW_H
