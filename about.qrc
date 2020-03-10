@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>about.txt</file>
-        <file>Qt_logo_2016.svg</file>
-    </qresource>
-</RCC>
