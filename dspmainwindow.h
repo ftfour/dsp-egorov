@@ -27,9 +27,10 @@ protected:
 
 private slots:
     void open();
+    void openExamples();
     void updateActions();
     void loadFiles();
-//    void about();
+    void about();
 
 private:
     void createActions();
@@ -37,15 +38,29 @@ private:
     void createStatusBar();
     void addSignal(signalViewer *viewer);
     signalViewer *activeViewer();
+
     QMdiArea *mdiArea;
     QLabel *readyLabel;
 //    QWidgetList windows;
 
     QMenu *fileMenu;
-//    QMenu *windowMenu;
-//    QMenu *helpMenu;
-    QActionGroup *windowActionGroup;
+    QMenu *windowMenu;
+    QMenu *helpMenu;
     QAction *openAction;
+    QAction *saveAction;
+    QAction *saveAsAction;
+    QAction *exitAction;
+    QAction *openExamplesAction;
+    QAction *closeAction;
+    QAction *closeAllAction;
+    QAction *tileAction;
+    QAction *cascadeAction;
+    QAction *nextAction;
+    QAction *prevAction;
+    QAction *separatorAction;
+    QActionGroup *windowActionGroup;
+    QAction *aboutAction;
+    QAction *aboutQtAction;
 
 };
 #endif // DSPMAINWINDOW_H

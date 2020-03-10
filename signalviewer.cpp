@@ -10,7 +10,7 @@ signalViewer::signalViewer(QWidget *parent) : QTextEdit(parent)
 
      isUntitled = true;
 
-     connect(document(), SIGNAL(contentChanged()),
+     connect(document(), SIGNAL(contentsChanged()),
              this, SLOT(documentWasModified()));
 
      setWindowTitle("[*]");
@@ -37,6 +37,44 @@ signalViewer *signalViewer::openFile(const QString &fileName, QWidget *parent)
         delete viewer;
         return 0;
     }
+}
+
+signalViewer *signalViewer::openExamples(QWidget *parent)
+{
+   QString fileName = ":/examples.txt";
+   return openFile(fileName, parent);
+}
+
+void signalViewer::closeEvent(QCloseEvent *event)
+{
+    if (okToContinue()){
+        event->accept();
+    } else {
+        event->ignore();
+    }
+}
+
+void signalViewer::documentWasModified()
+{
+    setWindowModified(true);
+}
+
+bool signalViewer::okToContinue()
+{
+    if (document()->isModified()){
+        int r = QMessageBox::warning(this, tr("DSP"),
+                                     tr("File %1 has been modified.\n"
+                                        "Do you want to save your changes?")
+                                     .arg(strippedName(curFile)),
+                                     QMessageBox::Yes | QMessageBox::No
+                                     | QMessageBox::Cancel);
+        if (r == QMessageBox::Yes){
+            return true;
+        } else if (r == QMessageBox::Cancel) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void signalViewer::setCurrentFile(const QString &fileName)

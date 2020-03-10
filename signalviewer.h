@@ -15,17 +15,17 @@ class signalViewer : public QTextEdit
 public:
     signalViewer(QWidget *parent = 0);
 //    QSize sizeHint() const;
-//    QAction *windowMenuAction() const {return action; }
+    QAction *windowMenuAction() const {return action; }
 
     static signalViewer *open(QWidget *parent = 0);
     static signalViewer *openFile(const QString &fileName,
                                   QWidget *parent = 0);
+    static signalViewer *openExamples(QWidget *parent = 0);
 
 protected:
-//    void closeEvent(QCloseEvent *event);
-
+    void closeEvent(QCloseEvent *event);
 private slots:
-//    void documentWasModified();
+    void documentWasModified();
 
 private:
     bool okToContinue();
