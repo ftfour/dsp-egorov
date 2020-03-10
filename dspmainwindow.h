@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QActionGroup>
 #include "signalviewer.h"
+#include <QStatusBar>
 
 class QMenu;
 

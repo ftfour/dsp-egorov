@@ -13,7 +13,6 @@ DSPMainWindow::DSPMainWindow()
     createActions();
     createMenus();
     createStatusBar();
-
     setWindowTitle("DSP - Egorov");
     QTimer::singleShot(0, this, SLOT(loadFiles()));
 }
@@ -115,14 +114,14 @@ void DSPMainWindow::createActions()
 //    connect(saveAsAction, SIGNAL(triggered()), this, SLOT(saveAs()));
 
     exitAction = new QAction(tr("E&xit"), this);
-    exitAction->setShortcut(tr("Ctrl+Q"));
+    exitAction->setShortcut(QKeySequence::Quit);
     exitAction->setStatusTip(tr("Exit the application"));
     connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
 
     // Menu - Window Actions
     closeAction = new QAction(tr("&Close"), this);
     closeAction->setEnabled(false);
-    closeAction->setShortcut(tr("Ctrl+X"));
+    closeAction->setShortcut(QKeySequence::Close);
     closeAction->setStatusTip(tr("Close active window"));
     connect(closeAction, SIGNAL(triggered()),
             mdiArea, SLOT(closeActiveSubWindow()));
@@ -201,7 +200,7 @@ void DSPMainWindow::createMenus()
 void DSPMainWindow::createStatusBar()
 {
     readyLabel = new QLabel(tr(" Ready"));
-    statusBar()->addWidget(readyLabel, 1);
+    statusBar()->addWidget(readyLabel,1);
 }
 
 void DSPMainWindow::addSignal(signalViewer *viewer)
